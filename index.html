@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Criação de Sites Profissionais | Slender Sites</title>
+
+<meta name="description" content="Criação de sites profissionais, rápidos e focados em vendas. Sites modernos a partir de R$50. Solicite seu orçamento agora.">
+<meta name="keywords" content="criação de sites, site profissional, fazer site barato, site para empresas, landing page, desenvolvedor web">
+<meta name="author" content="Slender Sites">
+
+<!-- SEO SOCIAL -->
+<meta property="og:title" content="Slender Sites | Sites Profissionais que Vendem">
+<meta property="og:description" content="Sites modernos, rápidos e focados em conversão. Orçamento sem compromisso.">
+<meta property="og:type" content="website">
+
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIÁVEIS */
+:root {
+    --azul: #00bfff;
+    --azul-forte: #008cff;
+    --preto: #000;
+    --cinza: #bfbfbf;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--preto);
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #050505;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--azul);
+}
+
+header h1 {
+    color: var(--azul);
+    font-size: 38px;
+}
+
+header p {
+    color: var(--cinza);
+    margin-top: 5px;
+}
+
+/* HERO */
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+.hero span {
+    color: var(--azul);
+}
+
+.hero p {
+    max-width: 780px;
+    margin: auto;
+    font-size: 20px;
+    color: #ccc;
+}
+
+/* BOTÃO */
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 34px;
+    background: var(--azul);
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--azul-forte);
+    transform: scale(1.05);
+}
+
+/* SEÇÕES */
+.section {
+    max-width: 1150px;
+    margin: 90px auto;
+    padding: 0 20px;
+}
+
+.section h3 {
+    color: var(--azul);
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* BENEFÍCIOS */
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.benefit {
+    background: #0a0a0a;
+    border-left: 6px solid var(--azul);
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+/* COMO FUNCIONA */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.step {
+    background: #0b0b0b;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--azul);
+}
+
+.step h4 {
+    color: var(--azul);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* PLANOS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.card {
+    background: #0b0b0b;
+    border: 2px solid var(--azul);
+    border-radius: 15px;
+    padding: 35px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 30px var(--azul);
+}
+
+.card h4 {
+    color: var(--azul);
+    font-size: 26px;
+}
+
+.card ul {
+    list-style: none;
+    margin: 25px 0;
+}
+
+.card ul li {
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.price {
+    font-size: 38px;
+    margin: 20px 0;
+}
+
+/* DESTAQUE */
+.featured {
+    transform: scale(1.05);
+    border: 3px solid var(--azul-forte);
+}
+
+/* FORM */
+.form-box {
+    background: #0a0a0a;
+    border: 2px solid var(--azul);
+    border-radius: 15px;
+    padding: 35px;
+    max-width: 750px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 14px;
+    background: #000;
+    border: 1px solid var(--azul);
+    color: #fff;
+    border-radius: 8px;
+}
+
+textarea {
+    min-height: 130px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 35px;
+    background: #050505;
+    color: #aaa;
+    border-top: 2px solid var(--azul);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Slender Sites</h1>
+    <p>Criação de sites profissionais focados em vendas</p>
+</header>
+
+<section class="hero">
+    <h2>Seu negócio precisa de um <span>site que VENDA</span></h2>
+    <p>
+        Criamos sites modernos, rápidos e pensados para converter visitantes
+        em clientes reais. Seu site não é custo, é investimento.
+    </p>
+    <a href="#orcamento" class="btn">Solicitar orçamento agora</a>
+</section>
+
+<section class="section">
+    <h3>Por que escolher a Slender Sites?</h3>
+    <div class="benefits">
+        <div class="benefit">✔ Design profissional e moderno</div>
+        <div class="benefit">✔ Totalmente responsivo (celular, tablet, PC)</div>
+        <div class="benefit">✔ Otimizado para Google (SEO)</div>
+        <div class="benefit">✔ Atendimento direto e rápido</div>
+    </div>
+</section>
+
+<section class="section">
+    <h3>Como funciona</h3>
+    <div class="steps">
+        <div class="step">
+            <h4>1️⃣ Orçamento</h4>
+            <p>Você chama no WhatsApp e explica sua ideia.</p>
+        </div>
+        <div class="step">
+            <h4>2️⃣ Criação</h4>
+            <p>Desenvolvemos o site e enviamos para aprovação.</p>
+        </div>
+        <div class="step">
+            <h4>3️⃣ Entrega</h4>
+            <p>Site finalizado, pronto para vender.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h3>Planos</h3>
+    <div class="cards">
+
+        <div class="card">
+            <h4>Site Básico</h4>
+            <ul>
+                <li>✔ 1 página</li>
+                <li>✔ Design simples</li>
+                <li>✔ Botão WhatsApp</li>
+            </ul>
+            <div class="price">R$50</div>
+            <a href="#orcamento" class="btn">Escolher</a>
+        </div>
+
+        <div class="card featured">
+            <h4>Site Profissional ⭐</h4>
+            <ul>
+                <li>✔ Até 5 páginas</li>
+                <li>✔ Visual premium</li>
+                <li>✔ SEO básico</li>
+                <li>✔ Conversão</li>
+            </ul>
+            <div class="price">R$150</div>
+            <a href="#orcamento" class="btn">Mais vendido</a>
+        </div>
+
+        <div class="card">
+            <h4>Site Completo</h4>
+            <ul>
+                <li>✔ Projeto personalizado</li>
+                <li>✔ Sistema ou vendas</li>
+                <li>✔ Escalável</li>
+            </ul>
+            <div class="price">R$450+</div>
+            <a href="#orcamento" class="btn">Solicitar</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="orcamento">
+    <h3>Solicite seu orçamento</h3>
+
+    <div class="form-box">
+        <form id="orcamentoForm">
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+
+            <label>WhatsApp</label>
+            <input type="text" name="contato" required>
+
+            <label>Tipo de site</label>
+            <select name="tipo">
+                <option>Site simples</option>
+                <option>Site profissional</option>
+                <option>Site de vendas</option>
+                <option>Sistema personalizado</option>
+            </select>
+
+            <label>Explique sua ideia</label>
+            <textarea name="mensagem" required></textarea>
+
+            <button type="submit" class="btn">Enviar orçamento</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    © 2026 • Slender Sites • Sites que convertem
+</footer>
+
+<script>
+document.getElementById("orcamentoForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const texto =
+`NOVO ORÇAMENTO
+
+Nome: ${this.nome.value}
+Contato: ${this.contato.value}
+Tipo: ${this.tipo.value}
+
+Detalhes:
+${this.mensagem.value}`;
+
+    const numero = "5581993277428"; // SEU NÚMERO
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(texto)}`, "_blank");
+});
+</script>
+
+</body>
+</html>
