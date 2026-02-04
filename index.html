@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planeta Gangster - Galáxia Web</title>
+<style>
+:root{
+  --primary:#ff4fa3;
+  --secondary:#7b3cff;
+  --accent:#00ffe0;
+  --bg:#0b0b0b;
+  --text:#f5f5f5;
+  --card:#1a1a1a;
+  --blur:rgba(255,255,255,0.05);
+  --shadow:rgba(0,255,255,0.25);
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Arial',sans-serif;
+}
+
+body{
+  background:#0b0b0b;
+  color:var(--text);
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+  position:relative;
+}
+
+/* BACKGROUND GALÁCTICO COM PARTICULAS */
+body::before{
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:url('https://i.imgur.com/7cXK6G5.jpg') no-repeat center/cover;
+  filter:brightness(0.15);
+  z-index:-2;
+}
+
+.particles{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:transparent;
+  z-index:-1;
+}
+
+.particles div{
+  position:absolute;
+  width:2px; height:2px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation: floatStars linear infinite;
+}
+
+@keyframes floatStars{
+  0%{transform:translateY(0) translateX(0);}
+  100%{transform:translateY(-1200px) translateX(500px);}
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding:15px 40px;
+  background: rgba(20,20,20,0.5);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 15px rgba(0,0,0,0.6);
+}
+
+nav h1{
+  background: linear-gradient(45deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  cursor:default;
+  font-size:2.2rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{text-shadow:0 0 10px var(--primary);}
+  50%{text-shadow:0 0 30px var(--secondary);}
+  100%{text-shadow:0 0 10px var(--primary);}
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:35px;
+}
+
+.nav-links li a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:bold;
+  padding:8px 12px;
+  border-radius:8px;
+  transition:.3s;
+}
+
+.nav-links li a:hover{
+  background:linear-gradient(45deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  transform:scale(1.2) rotate(5deg);
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:150px 20px 80px;
+  position:relative;
+}
+
+header h2{
+  font-size:3rem;
+  background: linear-gradient(45deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: headerGlow 2s infinite alternate;
+}
+
+@keyframes headerGlow{
+  0%{text-shadow:0 0 10px var(--primary);}
+  100%{text-shadow:0 0 40px var(--secondary);}
+}
+
+header p{
+  margin-top:15px;
+  opacity:0.85;
+  font-size:1.4rem;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+header button{
+  margin-top:25px;
+  padding:14px 30px;
+  font-size:1.1rem;
+  border-radius:35px;
+  border:none;
+  background:linear-gradient(45deg,var(--primary),var(--secondary));
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.4s;
+  box-shadow:0 0 20px var(--primary);
+}
+
+header button:hover{
+  transform:scale(1.08) rotate(-2deg);
+  box-shadow:0 0 40px var(--secondary);
+}
+
+@keyframes fadeUp{
+  0%{opacity:0;transform:translateY(30px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+
+/* SEÇÕES */
+.section{
+  padding:90px 20px;
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+}
+
+.section h2{
+  color:var(--primary);
+  margin-bottom:40px;
+  font-size:2.8rem;
+  animation: glowTitle 2s infinite alternate;
+}
+
+@keyframes glowTitle{
+  0%{text-shadow:0 0 10px var(--primary);}
+  100%{text-shadow:0 0 30px var(--secondary);}
+}
+
+.section p{
+  opacity:0.85;
+  line-height:1.7;
+  margin-bottom:40px;
+  font-size:1.1rem;
+}
+
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap:35px;
+  margin-top:40px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:25px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.5s;
+  box-shadow:0 8px 25px rgba(0,255,255,0.2);
+}
+
+.card:hover{
+  transform:translateY(-15px) scale(1.05) rotate(-1deg);
+  box-shadow:0 20px 50px rgba(0,255,255,0.5);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.card:hover img{
+  transform:scale(1.1) rotate(2deg);
+}
+
+.card-info{
+  padding:20px;
+  text-align:center;
+}
+
+.card-info span{
+  display:block;
+  font-size:1rem;
+}
+
+.card-info .price{
+  color:var(--primary);
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:20;
+  animation: fadeIn 0.5s;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-content{
+  background:var(--card);
+  border-radius:25px;
+  padding:30px;
+  text-align:center;
+  max-width:500px;
+  width:90%;
+  position: relative;
+  animation: popUp 0.5s ease;
+  box-shadow:0 0 50px var(--accent);
+}
+
+.modal-content img{
+  width:100%;
+  border-radius:15px;
+}
+
+.modal-content h3{
+  margin-top:20px;
+  color:var(--primary);
+  font-size:1.6rem;
+  animation: glowTitle 2s infinite alternate;
+}
+
+.modal-content p{
+  margin-top:10px;
+  font-weight:bold;
+  font-size:1.1rem;
+}
+
+.modal-content button{
+  margin-top:25px;
+  background:linear-gradient(45deg,var(--primary),var(--secondary));
+  border:none;
+  padding:14px 30px;
+  border-radius:35px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.modal-content button:hover{
+  transform:scale(1.1) rotate(2deg);
+  box-shadow:0 0 40px var(--secondary);
+}
+
+/* SOBRE NÓS - CARDS */
+.cards-about{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:35px;
+  margin-top:50px;
+}
+
+.cards-about .card-about{
+  background:var(--card);
+  padding:25px;
+  border-radius:25px;
+  transition:.5s;
+  box-shadow:0 8px 25px rgba(0,255,255,0.3);
+}
+
+.cards-about .card-about:hover{
+  transform:translateY(-12px) rotate(-1deg);
+  box-shadow:0 20px 50px rgba(0,255,255,0.5);
+}
+
+.cards-about h4{
+  margin-bottom:15px;
+  color:var(--primary);
+}
+
+.cards-about p{
+  opacity:0.8;
+}
+
+/* FORMULÁRIO */
+form{
+  display:flex;
+  flex-direction:column;
+  max-width:500px;
+  margin:auto;
+}
+
+form input, form textarea{
+  padding:15px;
+  border-radius:20px;
+  border:none;
+  margin-bottom:20px;
+  outline:none;
+  background:#222;
+  color:#fff;
+  font-size:1.05rem;
+}
+
+form button{
+  align-self:center;
+  padding:14px 30px;
+  border-radius:35px;
+  border:none;
+  background:linear-gradient(45deg,var(--primary),var(--secondary));
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+}
+
+form button:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 30px var(--accent);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:60px 20px;
+  opacity:.8;
+  font-size:1rem;
+}
+
+footer a{
+  color:var(--primary);
+  text-decoration:none;
+  margin:0 12px;
+  transition:.3s;
+}
+
+footer a:hover{
+  color:var(--secondary);
+  text-shadow:0 0 10px var(--accent);
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+  nav{
+    flex-direction:column;
+    gap:15px;
+  }
+  .nav-links{
+    flex-direction:column;
+    gap:15px;
+  }
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes popUp{
+  from{transform:scale(0.7);}
+  to{transform:scale(1);}
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>Planeta Gangster</h1>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#sobre">Sobre Nós</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header id="home">
+  <h2>Bem-vindo ao Planeta Gangster</h2>
+  <p>Um site de demonstração galáctico, exagerado e animado! 🌌✨</p>
+  <button onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">Ver Produtos</button>
+</header>
+
+<!-- PRODUTOS -->
+<section class="section" id="produtos">
+  <h2>Produtos Cósmicos</h2>
+  <div class="gallery" id="galeria"></div>
+</section>
+
+<!-- SOBRE NÓS -->
+<section class="section" id="sobre">
+  <h2>Sobre Nós</h2>
+  <p>Somos a comunidade Planeta Gangster, onde tudo é exagerado, animado e fora da realidade!</p>
+  <div class="cards-about">
+    <div class="card-about">
+      <h4>Missão</h4>
+      <p>Trazer experiências visuais extremas e interatividade máxima.</p>
+    </div>
+    <div class="card-about">
+      <h4>Visão</h4>
+      <p>Ser referência em sites “anormais” e impactantes.</p>
+    </div>
+    <div class="card-about">
+      <h4>Valores</h4>
+      <p>Exagero, criatividade, inovação e diversão visual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section" id="contato">
+  <h2>Contato</h2>
+  <form onsubmit="alert('Mensagem enviada!'); return false;">
+    <input type="text" placeholder="Seu Nome" required>
+    <input type="email" placeholder="Seu Email" required>
+    <textarea placeholder="Mensagem" rows="5" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="fecharModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <img id="modalImg">
+    <h3 id="modalNome"></h3>
+    <p id="modalPreco"></p>
+    <button onclick="fecharModal()">Fechar</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Planeta Gangster • Todos os direitos reservados
+  <div style="margin-top:10px;">
+    <a href="#">Facebook</a>
+    <a href="#">Twitter</a>
+    <a href="#">Instagram</a>
+  </div>
+</footer>
+
+<script>
+// ===== PARTICULAS =====
+const particleCount = 200;
+const particlesContainer = document.getElementById('particles');
+for(let i=0;i<particleCount;i++){
+  const p = document.createElement('div');
+  p.style.left=Math.random()*100+'%';
+  p.style.top=Math.random()*100+'%';
+  p.style.width=Math.random()*3+'px';
+  p.style.height=p.style.width;
+  p.style.opacity=Math.random();
+  p.style.animationDuration= 5 + Math.random()*10+'s';
+  particlesContainer.appendChild(p);
+}
+
+// ===== PRODUTOS =====
+const produtos = [];
+for(let i=1;i<=30;i++){
+  produtos.push({src:`https://picsum.photos/300/200?random=${i}`, nome:`Produto Cósmico ${i}`, preco:`R$ ${Math.floor(Math.random()*200)+50},00`});
+}
+
+// ===== GALERIA =====
+const galeria = document.getElementById("galeria");
+produtos.forEach(item=>{
+  galeria.innerHTML += `
+    <div class="card" onclick="abrirModal('${item.src}','${item.nome}','${item.preco}')">
+      <img src="${item.src}" alt="${item.nome}">
+      <div class="card-info">
+        <span>${item.nome}</span>
+        <span class="price">${item.preco}</span>
+      </div>
+    </div>
+  `;
+});
+
+// ===== MODAL =====
+function abrirModal(img,nome,preco){
+  document.getElementById("modal").classList.add("active");
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalNome").innerText = nome;
+  document.getElementById("modalPreco").innerText = preco;
+}
+
+function fecharModal(){
+  document.getElementById("modal").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
